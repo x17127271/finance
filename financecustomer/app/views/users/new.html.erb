@@ -1,6 +1,11 @@
 <div class="container h-100 mt-3">
   <div class="row h-100 justify-content-center align-items-center">   
     <div class="col-10 col-md-8 col-lg-6 mt-3">
+    <% if flash[:errors] %>
+                <% flash[:errors].each do |error|%>
+                    <p><%= error  %></p>
+                <% end %>
+            <% end %>
       <%= form_for @user do |f| %>
         <div class="form-group mt-3">
           <%= f.label :name %>
