@@ -1,15 +1,25 @@
-<h1>Cases#edit</h1>
-<% if flash[:errors] %>
-    <% flash[:errors].each do |error|%>
-        <p><%= error  %></p>
-    <% end %>
-<% end %>
-
-<%= form_for @case do |f| %>
-    <%= f.label :topic %>
-    <%= f.text_field :topic %>
-    <%= f.label :comments %>
-    <%= f.text_field :comments %>
-    
-    <%= f.submit %>
-<% end %>
+<div class="container h-100 mt-3">
+    <div class="row h-100 justify-content-center align-items-center">   
+        <div class="col-10 col-md-8 col-lg-6 mt-3">
+        <h4>Update Case</h4>
+            <% if flash[:errors] %>
+                <% flash[:errors].each do |error|%>
+                    <p><%= error  %></p>
+                <% end %>
+            <% end %>
+            <%= form_for @case do |f| %>
+                <div class="form-group mt-3">
+                    <%= f.label :topic %>
+                    <%= f.text_field :topic, class: 'form-control' %>
+                </div>
+                <div class="form-group mt-3">
+                    <%= f.label :comments %>
+                    <%= f.text_field :comments, class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                    <%= f.submit "Update", class: 'btn btn-primary' %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

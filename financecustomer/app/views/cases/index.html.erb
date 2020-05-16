@@ -1,47 +1,51 @@
 <% provide(:title, "Cases") %>
 
-<div class="container">
-  <div class="row mt-3 mb-3">
-   <p id="notice"><%= notice %></p>
-  </div class="row">
-  <div class="row mt-e">
-    <h1>Cases</h1>
-  </div class="row">
-  <div class="row">
-    <table class="table table-hover table-sm">
-      <caption>List of cases</caption>
-      <thead>
-        <tr>
-          <th scope="col">Id</th>
-          <th scope="col">Topic</th>
-          <th scope="col">Comments</th>
-          <th scope="col">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @cases.each do |current_case| %>
-         
-          <tr>
-            <td>
-              <%= current_case.id %>
-            </td>
-            <td>
-              <%= current_case.topic %>
-            </td>
-            <td>
-              <%= current_case.comments %>
-            </td>
-            <td>
-                <%= link_to 'Show', current_case, class: 'btn btn-outline-primary btn-sm' %>
-               
-                <%= link_to 'Edit', edit_case_path(current_case), class: 'btn btn-outline-primary btn-sm' %>
-              
-                <%= link_to 'Destroy', current_case, method: :delete, data: { confirm: 'Are you sure ?' }, class: 'btn btn-outline-danger btn-sm' %>
-            </td>        
-          </tr>
-          <% end %>
-        
-      </tbody>
-    </table>
+<div class="container h-100 mt-3">
+  <div class="row h-100 justify-content-center align-items-center">   
+    <div class="col-7 mt-3">
+      <div class="row">
+        <table class="table table-hover">
+          <caption>List of cases</caption>
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Customer</th>
+              <th scope="col">Topic</th>
+              <th scope="col">Comments</th>
+              <th scope="col">Created</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @cases.each do |current_case| %>            
+              <tr>
+                <td>
+                  <%= current_case.id %>
+                </td>
+                <td>
+                  <%= current_case.customer.name %>
+                </td>
+                <td>
+                  <%= current_case.topic %>
+                </td>
+                <td>
+                  <%= current_case.comments %>
+                </td>
+                <td>
+                  <%= current_case.created_at.to_date %>
+                </td>
+                <td>
+                    <%= link_to 'Show', current_case, class: 'btn btn-outline-primary btn-sm' %>                  
+                    <%= link_to 'Edit', edit_case_path(current_case), class: 'btn btn-outline-primary btn-sm' %>                  
+                    <%= link_to 'Destroy', current_case, method: :delete, data: { confirm: 'Are you sure ?' }, class: 'btn btn-outline-danger btn-sm' %>
+                </td>        
+              </tr>
+              <% end %>            
+          </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <a class="btn btn-primary" href="/cases/new" >Create new case</a>
+    </div>
   </div>
 </div>

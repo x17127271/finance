@@ -1,10 +1,19 @@
-<h1>Show Customer</h1>
-<div>
-<label>Name: <%= @customer.name%></label>
-</div>
-<div>
-<label>Phone: <%= @customer.phone%></label>
-</div>
-<div>
-<label>City: <%= @customer.city%></label>
+<div class="container h-100 mt-3">
+    <div class="row h-100 justify-content-center align-items-center">   
+        <div class="col-10 col-md-8 col-lg-6 mt-3">
+            <h3>Customer details</h3>
+            <div>
+                <label>Name: <%= @customer.name %></label>
+            </div>
+            <div>
+                <label>Phone: <%= @customer.phone %></label>
+            </div>
+            <div>
+                <label>City: <%= @customer.city %></label>
+            </div>
+            <div>
+                <label>Created: <%= @customer.created_at.to_date %></label>
+            </div>
+        </div>
+    </div>
 </div>

@@ -10,8 +10,9 @@ class UsersController < ApplicationController
       if @user.valid?
         @user.save
         redirect_to @user
-      else  
-        redirect :new
+      else
+        flash[:errors] = @user.errors.full_messages
+        redirect_to action: 'new'
       end
     end
   
