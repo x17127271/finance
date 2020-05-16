@@ -1,2 +1,15 @@
 <h1>Cases#edit</h1>
-<p>Find me in app/views/cases/edit.html.erb</p>
+<% if flash[:errors] %>
+    <% flash[:errors].each do |error|%>
+        <p><%= error  %></p>
+    <% end %>
+<% end %>
+
+<%= form_for @case do |f| %>
+    <%= f.label :topic %>
+    <%= f.text_field :topic %>
+    <%= f.label :comments %>
+    <%= f.text_field :comments %>
+    
+    <%= f.submit %>
+<% end %>
