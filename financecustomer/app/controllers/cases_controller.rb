@@ -1,4 +1,6 @@
 class CasesController < ApplicationController
+  before_action :authorized
+  
   def index
     @cases = Case.all
   end

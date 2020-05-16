@@ -1,4 +1,6 @@
 class CustomersController < ApplicationController
+  before_action :authorized
+
   def index
     @customers = Customer.all
   end
